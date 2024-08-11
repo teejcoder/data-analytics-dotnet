@@ -1,0 +1,22 @@
+@page
+@model Market.Pages.MarketModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Market Data</title>
+</head>
+<body>
+    <h1>Market Data</h1>
+
+    @if (!string.IsNullOrEmpty(Model.MarketDataJson))
+    {
+        <pre>@Model.MarketDataJson</pre>
+    }
+    else
+    {
+        <p>No market data available.</p>
+    }
+</body>
+</html>
