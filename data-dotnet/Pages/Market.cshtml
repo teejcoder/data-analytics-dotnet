@@ -6,17 +6,57 @@
 <head>
     <meta charset="utf-8" />
     <title>Market Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <h1>Market Data</h1>
 
-    @if (!string.IsNullOrEmpty(Model.MarketDataJson))
+    <pre>@Model.MarketDataJson</pre>
+
+    @* @if (Model.MarketData != null && Model.MarketData.Count > 0)
     {
-        <pre>@Model.MarketDataJson</pre>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Open</th>
+                    <th>High</th>
+                    <th>Low</th>
+                    <th>Close</th>
+                    <th>Volume</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dayData in Model.MarketData)
+                {
+                    <tr>
+                        <td>@dayData.Date</td>
+                        <td>@dayData.Open</td>
+                        <td>@dayData.High</td>
+                        <td>@dayData.Low</td>
+                        <td>@dayData.Close</td>
+                        <td>@dayData.Volume</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
     else
     {
         <p>No market data available.</p>
-    }
+    } *@
 </body>
 </html>
